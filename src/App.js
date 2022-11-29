@@ -1,13 +1,19 @@
 import './App.css';
 import Button from './components/Button';
 import './stylesheets/Button.css';
-import Input from './components/Input'
+import Input from './components/Input';
+import ClearButton from './components/ClearButton';
+import { useState } from 'react';
 
 function App() {
+
+  const [input, setInput] = useState('Hola');
+
+
   return (
     <div className="App">
       <div className='calculator-container'>
-        <Input />
+        <Input input={input}/>
         <div className='row'>
           <Button>
             1
@@ -65,7 +71,9 @@ function App() {
           </Button>
           
         </div>
-        <div className='row'></div>
+        <div className='row'>
+          <ClearButton>Clear</ClearButton>
+        </div>
       </div>
     </div>
   );
