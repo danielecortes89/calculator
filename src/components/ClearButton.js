@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../stylesheets/Clearbutton.css'
 const ClearButton = (props) => (
-    <button className="clear-button">
+
+
+
+
+    <button className="clear-button"
+      onClick={ props.handleClear }
+    >
         {props.children}
     </button>
 );

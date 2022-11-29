@@ -4,10 +4,21 @@ import './stylesheets/Button.css';
 import Input from './components/Input';
 import ClearButton from './components/ClearButton';
 import { useState } from 'react';
+import { evaluate } from 'mathjs';
 
 function App() {
 
-  const [input, setInput] = useState('Hola');
+  const [input, setInput] = useState('');
+ 
+  const handleButtonClick = val => {
+    setInput(input + val)
+  };
+
+  const resetButton = () => ( setInput(''));
+
+  const handleEqual = () => {
+    setInput(evaluate(input));
+  }
 
 
   return (
@@ -15,64 +26,65 @@ function App() {
       <div className='calculator-container'>
         <Input input={input}/>
         <div className='row'>
-          <Button>
+          <Button  handleClick={handleButtonClick}
+          >
             1
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             2
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             3
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             +
           </Button>
         </div>
         <div className='row'>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             4
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             5
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             6
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             -
           </Button>
         </div>
         <div className='row'>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             7
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             8
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             9
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             *
           </Button>
         </div>
         <div className='row'>
-          <Button>
+          <Button  handleClick={handleEqual}>
             =
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             0
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             .
           </Button>
-          <Button>
+          <Button  handleClick={handleButtonClick}>
             /
           </Button>
           
         </div>
         <div className='row'>
-          <ClearButton>Clear</ClearButton>
+          <ClearButton handleClear={resetButton}>Clear</ClearButton>
         </div>
       </div>
     </div>
