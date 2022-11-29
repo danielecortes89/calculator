@@ -17,7 +17,12 @@ function App() {
   const resetButton = () => ( setInput(''));
 
   const handleEqual = () => {
-    setInput(evaluate(input));
+    if(input) {
+      setInput(evaluate(input));
+    } else {
+      alert("Por favor ingrese valores");
+    }
+    
   }
 
 
@@ -92,3 +97,4 @@ function App() {
 }
 
 export default App;
+
